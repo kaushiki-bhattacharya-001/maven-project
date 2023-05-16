@@ -11,7 +11,7 @@ public class Scholar {
     private long id;
 
     @Column(name = "full_name", nullable = false)
-    private String fullName;
+    private String full_name;
 
     @Column(name = "batch", nullable = false)
     private String batch;
@@ -25,11 +25,11 @@ public class Scholar {
     }
 
     public String getFullName() {
-        return fullName;
+        return full_name;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        this.full_name = fullName;
     }
 
     public String getBatch() {

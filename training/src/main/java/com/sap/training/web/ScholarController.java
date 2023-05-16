@@ -1,5 +1,6 @@
 package com.sap.training.web;
 
+import com.sap.training.dto.ScholarDto;
 import com.sap.training.model.Scholar;
 import com.sap.training.service.ScholarService;
 import org.slf4j.Logger;
@@ -21,10 +22,13 @@ public class ScholarController {
     public ScholarService scholarService;
 
     @PostMapping
-    public HttpEntity<Scholar> addScholar(@RequestBody Scholar scholar) {
+    public HttpEntity<Scholar> addScholar(@RequestBody ScholarDto scholarDto) {
         Scholar res;
-        logger.info("Request body: " + scholar);
+        logger.info("Request body: " + scholarDto);
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+        Scholar scholar = new Scholar();
+        scholar.setFullName(scholarDto.getFull_name());
+        scholar.setBatch(scholarDto.getBatch());
         if(scholarService.addScholar(scholar)) {
             status = HttpStatus.CREATED;
             res = scholar;
@@ -33,15 +37,17 @@ public class ScholarController {
         return new ResponseEntity<>(res, status);
     }
 
-    @GetMapping
+    @GetMapping("/")
     public HttpEntity<List<Scholar>> listAllScholar() {
         HttpStatus status = HttpStatus.OK;
         List<Scholar> res = scholarService.getAllScholars();
         return new ResponseEntity<>(res, status);
     }
 
-//    @GetMapping("/{id}")
-//    public HttpEntity<List<Scholar>> getScholarById (@RequestBody long id) {
-//
-//    }
+    @GetMapping("/{batch}/")
+    public HttpEntity<List<Scholar>> getScholarByBatch (@PathVariable String batch) {
+          HttpStatus status = HttpStatus.OK;
+          List<Scholar> res = scholarService.getScholarByBatch(batch);
+          return new ResponseEntity<>(res, status);
+    }
 }
