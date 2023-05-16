@@ -1,0 +1,4 @@
+com\sap\training\TrainingApplication.class
+com\sap\training\web\UserController.class
+com\sap\training\web\DummyController.class
+com\sap\training\model\User.class
