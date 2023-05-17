@@ -35,4 +35,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -f /home/runner/work/maven-project/maven-project/training/pom.xml -B verify -X -q sonar:sonar -Dsonar.projectKey=DevOpsProject -Dsonar.projectName='DevOpsProject' -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=squ_c30d6a4c364ae70539a8570c7aaeeb07acdb05e2
+        run: mvn -f /home/runner/work/maven-project/maven-project/training/pom.xml -B verify -q sonar:sonar -Dsonar.projectKey=DevOpsProject -Dsonar.projectName='DevOpsProject' -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=admin -Dsonar.password=Admin
