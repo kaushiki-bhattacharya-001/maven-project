@@ -14,7 +14,7 @@ pipeline {
                 // Get code from a GitHub repository
                 git 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
 
-                echo "Pulling from ..." + git.BRANCH_NAME
+                //echo "Pulling from ..." + git.BRANCH_NAME
 
                 // Run Maven on a Unix agent.
                 sh "mvn -f training/pom.xml -Dmaven.test.failure.ignore=true clean package"
