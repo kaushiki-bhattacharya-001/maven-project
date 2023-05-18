@@ -1,3 +1,3 @@
 # maven-project
 assignment of maven
-Integrating GitHub, Jenkins, and SonarQube
+Integrating GitHub & Jenkins
