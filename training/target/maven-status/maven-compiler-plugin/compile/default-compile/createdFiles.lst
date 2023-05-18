@@ -1,4 +1,7 @@
+com\sap\training\dto\ScholarDto.class
 com\sap\training\TrainingApplication.class
-com\sap\training\web\UserController.class
 com\sap\training\web\DummyController.class
-com\sap\training\model\User.class
+com\sap\training\web\ScholarController.class
+com\sap\training\model\Scholar.class
+com\sap\training\repository\ScholarRepository.class
+com\sap\training\service\ScholarService.class
