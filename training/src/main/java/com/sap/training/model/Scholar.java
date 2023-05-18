@@ -43,5 +43,11 @@ public class Scholar {
         this.batch = batch;
     }
 
+    public String getManager() {
+        return manager;
+    }
 
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
 }

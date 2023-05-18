@@ -19,4 +19,15 @@ public class DummyController {
     public String getHelloWorldWithParams(@RequestParam String param) {
         return "Hello World, Parameter Value: " + param;
     }
+
+    @GetMapping("/{num}")
+    public int getDivisionByTen(@PathVariable int num) {
+        return (10 / num);
+    }
+
+    @GetMapping("/nullPrint")
+    public String printNull() {
+        String str = null;
+        return String.valueOf(str.length());
+    }
 }
