@@ -16,8 +16,8 @@ public class Scholar {
     @Column(name = "batch", nullable = false)
     private String batch;
     
-//     @Column(name = "manager")
-//     private String manager;
+    @Column(name = "manager")
+    private String manager;
 
     public long getId() {
         return id;
