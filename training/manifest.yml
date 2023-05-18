@@ -3,7 +3,7 @@ applications:
     memory: 768M
     routes:
       - route: devops-project-maven.apps.internal
-    path: ../target/maven-project-0.0.1-SNAPSHOT.jar
+    path: ../target/training-0.0.1-SNAPSHOT.jar
     buildpacks: sap_java_buildpack
     health-check-timeout: 180
     env:
