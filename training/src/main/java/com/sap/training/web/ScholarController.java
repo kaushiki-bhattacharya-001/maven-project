@@ -21,20 +21,20 @@ public class ScholarController {
     @Autowired
     public ScholarService scholarService;
 
-    @PostMapping
+    @PostMapping("/addScholar")
     public HttpEntity<Scholar> addScholar(@RequestBody ScholarDto scholarDto) {
-        Scholar res;
         logger.info("Request body: " + scholarDto);
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus status;
         Scholar scholar = new Scholar();
-        scholar.setFullName(scholarDto.getFull_name());
+        scholar.setFull_name(scholarDto.getFull_name());
         scholar.setBatch(scholarDto.getBatch());
+        scholar.setManager(scholarDto.getManager());
+        scholar.setInumber(scholarDto.getInumber());
         if(scholarService.addScholar(scholar)) {
             status = HttpStatus.CREATED;
-            res = scholar;
         } else
-            res = new Scholar();
-        return new ResponseEntity<>(res, status);
+            status = HttpStatus.NOT_IMPLEMENTED;
+        return new ResponseEntity<>(status);
     }
 
     @GetMapping("/")
@@ -44,10 +44,29 @@ public class ScholarController {
         return new ResponseEntity<>(res, status);
     }
 
-    @GetMapping("/{batch}/")
+    @GetMapping("/batch/{batch}/")
     public HttpEntity<List<Scholar>> getScholarByBatch (@PathVariable String batch) {
           HttpStatus status = HttpStatus.OK;
           List<Scholar> res = scholarService.getScholarByBatch(batch);
           return new ResponseEntity<>(res, status);
+    }
+
+    @GetMapping("/inumber/{inumber}/")
+    public HttpEntity<List<Scholar>> getScholarByINumber (@PathVariable String inumber) {
+        HttpStatus status = HttpStatus.OK;
+        List<Scholar> res = scholarService.getScholarByINumber(inumber);
+        return new ResponseEntity<>(res, status);
+    }
+    @PostMapping("/deleteByInumber")
+    public HttpEntity<Scholar> deleteScholarByName (@RequestBody ScholarDto scholarDto) {
+        HttpStatus status;
+        List<Scholar> res = scholarService.getScholarByINumber(scholarDto.getInumber());
+        long id = res.get(0).getId();
+        boolean flag = scholarService.deleteScholar(id);
+        if(flag)
+            status = HttpStatus.OK;
+        else
+            status = HttpStatus.NOT_MODIFIED;
+        return new ResponseEntity<>(status);
     }
 }

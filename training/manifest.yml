@@ -3,9 +3,9 @@ applications:
     memory: 768M
     routes:
       - route: devops-project-maven.apps.internal
-    path: ../target/training-0.0.1-SNAPSHOT.jar
+    path: ../target/scholar-project.jar
     buildpacks:
-      - sap_java_buildpack
+      - sap_java_buildpack_1_69
     health-check-timeout: 180
     env:
       JBP_CONFIG_COMPONENTS: "jres: ['com.sap.xs.java.buildpack.jdk.SAPMachineJDK']"

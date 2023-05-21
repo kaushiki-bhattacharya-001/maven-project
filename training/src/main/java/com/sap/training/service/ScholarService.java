@@ -49,6 +49,17 @@ public class ScholarService {
         return list;
     }
 
+    public List<Scholar> getScholarByINumber(String inumber) {
+        List<Scholar> list;
+        try {
+            list = scholarRepository.findByInumber(inumber);
+        } catch (Exception e) {
+            logger.error("Something went wrong: ", e);
+            list = new ArrayList<>();
+        }
+        return list;
+    }
+
     public boolean deleteScholar(long id) {
         try {
             scholarRepository.deleteById(id);

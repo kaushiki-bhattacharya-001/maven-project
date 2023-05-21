@@ -1,9 +1,12 @@
 package com.sap.training.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="scholar")
+@Data
 public class Scholar {
     @Id
     @Column(name = "id")
@@ -19,35 +22,6 @@ public class Scholar {
     @Column(name = "manager")
     private String manager;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return full_name;
-    }
-
-    public void setFullName(String fullName) {
-        this.full_name = fullName;
-    }
-
-    public String getBatch() {
-        return batch;
-    }
-
-    public void setBatch(String batch) {
-        this.batch = batch;
-    }
-
-    public String getManager() {
-        return manager;
-    }
-
-    public void setManager(String manager) {
-        this.manager = manager;
-    }
+    @Column(name = "inumber", nullable = false)
+    private String inumber;
 }
