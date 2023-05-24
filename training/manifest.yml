@@ -9,7 +9,7 @@ applications:
     health-check-timeout: 180
     env:
       JBP_CONFIG_COMPONENTS: "jres: ['com.sap.xs.java.buildpack.jdk.SAPMachineJDK']"
-      JBP_CONFIG_SAP_MACHINE_JRE: '{ use_offline_repository: false, version: 17.0.5 }'
+      JBP_CONFIG_SAP_MACHINE_JRE: '{ use_offline_repository: false, version: 11.0.17 }'
       SPRING_PROFILES_ACTIVE: cloud,hana
     services:
       - trial_db

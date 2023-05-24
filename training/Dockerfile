@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:11
 VOLUME /tmp
 ADD target/scholar-project.jar scholar-project
 ENTRYPOINT ["java", "-jar","scholar-project"]
