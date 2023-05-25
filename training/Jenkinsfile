@@ -5,18 +5,9 @@ pipeline {
         jdk "jdk11"
     }
     stages {
-        stage('Fetch') {
-            steps {
-                git branch: 'main', url: 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
-            }
-            post {
-                success {
-                    echo "Pulling from ..." + git.BRANCH_NAME
-                }
-            }
-        }
         stage('Build') {
             steps {
+                git 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
                 sh "mvn -f training/pom.xml -Dmaven.test.skip=true clean compile"
             }
             post {
