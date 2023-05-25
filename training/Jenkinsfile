@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "mvn test"
+                sh "mvn -f training/pom.xml test"
             }
             post {
                 success {
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh "mvn package"
+                sh "mvn -f training/pom.xml package"
             }
             post {
                 success {
