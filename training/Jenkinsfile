@@ -5,9 +5,9 @@ pipeline {
         jdk "jdk11"
     }
     stages {
-        stage('Checkout') {
+        stage('Fetch') {
             steps {
-                git 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
+                git branch: 'main', url: 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
             }
             post {
                 success {
