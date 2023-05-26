@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
+                git branch: 'main', url: 'https://github.com/kaushiki-bhattacharya-001/maven-project.git'
                 sh "mvn -f training/pom.xml -Dmaven.test.skip=true clean compile"
             }
             post {
