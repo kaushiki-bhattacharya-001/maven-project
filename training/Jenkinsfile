@@ -41,5 +41,10 @@ pipeline {
                 echo "DEPLOY"
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                sh "mvn -f training/pom.xml clean verify sonar:sonar -Dsonar.projectKey=DevOpsProject-Pipelines -Dsonar.projectName='DevOpsProject-Pipelines'"
+            }
+        }
     }
 }
