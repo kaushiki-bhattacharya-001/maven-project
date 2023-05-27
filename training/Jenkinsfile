@@ -38,18 +38,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Install and configure Minikube
-                // sh 'curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64'
-                // sh 'sudo install minikube-linux-amd64 /usr/local/bin/minikube'
-                sh 'minikube start --driver=docker'
-                sh 'docker build -t training/target/scholar-project.jar .'
-                sh 'minikube image load scholar-project.jar:latest'
-                sh 'kubectl apply -f training/deployment.yaml'
-            }
-            post {
-                success {
-                    echo "DEPLOYMENT SUCCESSFUL!"
-                }
+                echo "DEPLOY"
             }
         }
     }
