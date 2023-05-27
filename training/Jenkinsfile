@@ -43,7 +43,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                sh "mvn -f training/pom.xml clean verify sonar:sonar -Dsonar.projectKey=DevOpsProject-Pipelines -Dsonar.projectName='DevOpsProject-Pipelines'"
+                sh "mvn -f training/pom.xml clean compile sonar:sonar -Dsonar.host.url=https://6960-165-1-238-175.ngrok-free.app -Dsonar.token=sqp_1c3dc85775b887849684475fea7f6cb91535f33a -Dsonar.projectKey=DevOpsProject-Pipelines -Dsonar.projectName='DevOpsProject-Pipelines'"
             }
         }
     }
